@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Tuned Extension",
+    "$schema": "https://json.schemastore.org/chrome-manifest.json",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "action": {
+      "default_popup": "hello.html",
+      "default_icon": {"16": "icon.jpg"},
+      "default_title": "TunedExt"
+    },
+    "permissions": ["storage", "management", "cookies"],
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+        {"matches": ["<all_urls>"], "js": ["src/scripts/content.js"], "run_at": "document_idle"}
+    ],
+    "background": {"service_worker": "src/scripts/background.js"}
+  }
